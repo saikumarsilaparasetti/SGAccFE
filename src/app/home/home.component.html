@@ -1,0 +1,107 @@
+    <body >
+       
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Customer details</h2>
+
+                <div class="divider-custom">
+                    <form name="sentMessage" novalidate="novalidate" (ngSubmit)="verifyCust()">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>UserName/contact/serial number</label>
+                                <input matInput class="form-control" id="name" type="text" [(ngModel)]="user.id" [ngModelOptions]="{standalone: true}" placeholder="Name/Contact/ID" required="required"  name="username"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br />
+                        <div id="success"></div>
+                        <div class="form-group"><button class="btn btn-primary btn-xl" style="margin:5px;" id="sendMessageButton" type="submit">Submit</button>
+                        <a routerLink="/register"><button class="btn btn-primary btn-xl" style="margin:5px;" id="sendMessageButton" type="submit">Register</button></a></div>
+                        
+                    </form>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section *ngIf="in_valid && !_first" class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                
+                <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Customer details not available!!!!</h3>
+            </div>
+        </section>
+
+            <section *ngIf="valid" class="page-section portfolio" id="portfolio">
+                <div class="container">
+                    <!-- Portfolio Section Heading-->
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Here we're!!</h2>
+                    <div class="page-section-heading text-secondary mb-0">
+                        
+                            <h2>Customer name: {{res_user["name"]}}</h2>
+                            
+                            <h2>Father name: {{res_user["s_o"]}}</h2>
+                            
+                            <h2>Address: {{res_user["address"]}}</h2>
+                            
+                            <h2>Contact: {{res_user["contact"]}}</h2>
+                            
+                            <h2>Available balance : {{res_user["balance"]}}</h2>
+                            
+                        </div>
+                        <div>
+                            <section *ngIf="_issue">
+                                <form name="sentMessage" novalidate="novalidate" (ngSubmit)="onIssue()">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Customer name</label>
+                                            <input matInput class="form-control" id="name" type="text" [(ngModel)]="_user.name" [ngModelOptions]="{standalone: true}" placeholder="Customer Name" required="required"  name="name"/>
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Item name</label>
+                                            <input matInput class="form-control" id="Iname" type="text" [(ngModel)]="_user.Iname" [ngModelOptions]="{standalone: true}" placeholder="Item name" required="required"  name="Iname"/>
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Amount</label>
+                                            <input matInput class="form-control" id="amount" type="number" [(ngModel)]="_user.amount" [ngModelOptions]="{standalone: true}" placeholder="Amount" required="required"  />
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Remarks</label>
+                                            <input matInput class="form-control" id="remarks" type="text" [(ngModel)]="_user.remarks" [ngModelOptions]="{standalone: true}" placeholder="Remarks" />
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <br/>
+                                    <div id="success"></div>
+                                    <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Submit</button></div>
+                                </form>
+
+                            </section>
+
+                            <section *ngIf ="!_issue">
+                                <button (click)="issue()" class="btn btn-primary btn-xl" style="margin:5px;" id="sendMessageButton"  type="submit">Issue</button>
+                                <button (click)="statement()" class="btn btn-primary btn-xl" style="margin:5px;" id="sendMessageButton"  type="submit">Statement</button>
+                            </section>
+
+
+                            <section *ngIf="_stat">
+                                
+                                <h2>Stat Clicked</h2>
+                            </section>
+                    </div> 
+                </div>
+            </section>
+</body>
+

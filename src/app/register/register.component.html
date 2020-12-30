@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <br/>
+        <br/>
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Register</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <form name="sentMessage" novalidate="novalidate" (ngSubmit)="onSubmit()">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>UserName</label>
+                                <input matInput class="form-control" id="name" type="text" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}" placeholder="Name" required="required"  name="name"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>S/O</label>
+                                <input matInput class="form-control" id="S/O" type="text" [(ngModel)]="user.s_o" [ngModelOptions]="{standalone: true}" placeholder="S/O" required="required"  name="s_o"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Address</label>
+                                <input matInput class="form-control" id="address" type="address" [(ngModel)]="user.address" [ngModelOptions]="{standalone: true}" placeholder="Address" required="required"  />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Contact</label>
+                                <input matInput class="form-control" id="address" type="contact" [(ngModel)]="user.contact" [ngModelOptions]="{standalone: true}" placeholder="Contact" required="required"  />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        
+                        <br />
+                        <div id="success"></div>
+                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Submit</button></div>
+                    </form>
+                    <h6 *ngIf="invalid">Error!!!</h6>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
+
