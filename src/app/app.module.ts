@@ -11,6 +11,9 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import {MatTableModule} from '@angular/material/table';
+import {AuthGuard} from './guards/auth.guard';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,7 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
