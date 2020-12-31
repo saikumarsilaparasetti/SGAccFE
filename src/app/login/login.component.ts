@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
     //this.res=false;
     //this.user.username=
     //alert('clicked')
-    this.http.post<boolean>('http://localhost:3000/login/', this.user ).subscribe(
+    //this.http.post<boolean>('http://localhost:3000/login/', this.user ).subscribe(
+      this.http.post<boolean>('login/', this.user ).subscribe(
       res => {
       if(res){
         this.inValid=false;

@@ -61,7 +61,8 @@ elements:any;
   verifyCust(){
     this._first=false;
     this.in_valid=false;
-    this.http.post("http://localhost:3000/verify/",this.user).subscribe(
+    //this.http.post("http://localhost:3000/verify/",this.user).subscribe(
+      this.http.post("verify/",this.user).subscribe(
       res=>{
         //console.log(res);
         if(res===null){
@@ -106,7 +107,8 @@ issue(){
 
   onIssue(){
     this._user['cust_id']=this._issue_cust_id;
-    this.http.post("http://localhost:3000/issue/",this._user).subscribe(
+    //this.http.post("http://localhost:3000/issue/",this._user).subscribe(
+      this.http.post("issue/",this._user).subscribe(
       res=>{
         if(res==null){
           console.log("ERROR");
@@ -127,7 +129,8 @@ issue(){
 
   statement(){
     this._stat=true;
-    this.http.post<Transection[]>("http://localhost:3000/getStatement/",{'cust_id':this._issue_cust_id}).subscribe(
+    //this.http.post<Transection[]>("http://localhost:3000/getStatement/",{'cust_id':this._issue_cust_id}).subscribe(
+      this.http.post<Transection[]>("getStatement/",{'cust_id':this._issue_cust_id}).subscribe(
       res=>{
         if(res==null){
           console.log('No Transections');

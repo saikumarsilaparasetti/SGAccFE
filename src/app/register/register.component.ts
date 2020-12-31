@@ -27,7 +27,8 @@ invalid:boolean=false;
 
   onSubmit(){
       console.log(this.user);
-      this.http.post('http://localhost:3000/registerCustomer',this.user).subscribe(
+      //this.http.post('http://localhost:3000/registerCustomer',this.user).subscribe(
+        this.http.post('registerCustomer',this.user).subscribe(
         res=>{
           console.log(res);
         },
