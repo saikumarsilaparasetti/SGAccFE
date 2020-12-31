@@ -20,6 +20,11 @@ invalid:boolean=false;
 
   ngOnInit(): void {
   }
+
+  cancel():void{
+    this.router.navigate(['/home']);
+  }
+
   onSubmit(){
       console.log(this.user);
       this.http.post('http://localhost:3000/registerCustomer',this.user).subscribe(

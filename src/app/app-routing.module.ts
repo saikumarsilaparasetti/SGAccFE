@@ -4,13 +4,15 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth.guard';
+import { TestTableComponent } from './test-table/test-table.component';
 
 
 const routes: Routes = [
   {path :'index', component:LoginComponent},
   {path:'',redirectTo:'/index',pathMatch:'full'},
   {path:'home',component:HomeComponent, canActivate:[AuthGuard]},
-  {path:'register',component:RegisterComponent}
+  {path:'register',component:RegisterComponent},
+  {path:'test',component:TestTableComponent}
 ];
 
 @NgModule({

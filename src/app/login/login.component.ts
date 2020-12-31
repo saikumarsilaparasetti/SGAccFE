@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
 
   user:Admin = { username: "", password: "" };
   //Admin = { username: "", password: "" };
-  res: boolean=false;
-  val:boolean=true;
+  //res: boolean=false;
+  inValid:boolean=false;
   constructor(private http: HttpClient, private router: Router,private auth:AuthService) {
   }
 
@@ -24,12 +24,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.res=false;
+    //this.res=false;
     //this.user.username=
     //alert('clicked')
     this.http.post<boolean>('http://localhost:3000/login/', this.user ).subscribe(
       res => {
       if(res){
+        this.inValid=false;
         localStorage.setItem('isLoggedIn','true');
         localStorage.setItem('token',this.user['username']);
         //this.header.ngOnInit();
@@ -37,8 +38,9 @@ export class LoginComponent implements OnInit {
         header.ngOnInit();
         this.router.navigate(['/home']);
       }
-      else
-        this.res=true;
+      else{
+        this.inValid=true;
+      }
       },
       error => {
         console.log("error", error);

@@ -3,6 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import {Customer} from '../shared/customer';
 import {Transection} from '../shared/transection';
 
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
 
 
 @Component({
@@ -11,6 +17,8 @@ import {Transection} from '../shared/transection';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+
 user={id:null};
 // result_user:any={
 //   name:""
@@ -23,7 +31,7 @@ _user={
   amount:null,
   remarks:""
 }
-dataSource:Transection[];
+//dataSource:Transection[];
 transections:Transection[];
 _first:boolean=true;
 valid:boolean=false;
@@ -34,8 +42,18 @@ _issue_cust_id:string="";
 _stat:boolean=false;
 
   constructor(private http:HttpClient) { }
+  // elements: any = [
+  //   {id: 1, first: 'Mark', last: 'Otto', handle: '@mdo'},
+  //   {id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat'},
+  //   {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter'},
+  // ];
+elements:any;
 
+  headElements = ['Date','Item', 'Amount', 'Customer' ,'Remarks'];
   ngOnInit(): void {
+
+
+
   }
   onSubmit(){
     alert('alert');
@@ -77,6 +95,11 @@ _stat:boolean=false;
 //    console.log(res["name"]);
   }
 
+
+cancel():void{
+  this._issue=false;
+}
+
 issue(){
   this._issue=true;
 }
@@ -110,7 +133,8 @@ issue(){
           console.log('No Transections');
         }else{
           this.transections=res;
-          this.dataSource=this.transections;
+          this.elements=res;
+          //this.dataSource=this.transections;
           console.log(res)
         }
       })

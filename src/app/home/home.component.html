@@ -85,7 +85,8 @@
                                     
                                     <br/>
                                     <div id="success"></div>
-                                    <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Submit</button></div>
+                                    <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Submit</button>
+                                    <button (click)="cancel()" class="btn btn-primary btn-xl" style="margin:5px;" id="sendMessageButton"  type="submit">Cancel</button></div>
                                 </form>
 
                             </section>
@@ -95,13 +96,35 @@
                                 <button (click)="statement()" class="btn btn-primary btn-xl" style="margin:5px;" id="sendMessageButton"  type="submit">Statement</button>
                             </section>
 
-
-                            <section *ngIf="_stat">
-                                
-                                <h2>Stat Clicked</h2>
-                            </section>
+                            
                     </div> 
+                    <div>
+                    <div class='stat' *ngIf='_stat' >
+                        <br/>
+                        <br/>
+                        <br/>
+                        <table mdbTable>
+                            <caption>List of transections</caption>
+                            <thead>
+                              <tr>
+                                <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr mdbTableCol *ngFor="let el of elements">
+                                <th scope="row">{{el.time}}</th>
+                                <td>{{el.Iname}}</td>
+                                <td>{{el.amount}}</td>
+                                <td>{{el.name}}</td>
+                                <td>{{el.remarks}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                            <!-- <h2>Stat Clicked</h2> -->
+                        </div>
                 </div>
+                </div>
+
             </section>
 </body>
 

@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import {MatTableModule} from '@angular/material/table';
 import {AuthGuard} from './guards/auth.guard';
+import { TestTableComponent } from './test-table/test-table.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {AuthGuard} from './guards/auth.guard';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    TestTableComponent
   ],
   imports: [
     BrowserModule,
