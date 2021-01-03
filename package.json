@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build-serve": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve",
-    "start": "ng serve --port $PORT --disableHostCheck",
+    "start": "ng serve --port $PORT --host 0.0.0.0 --disableHostCheck",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
