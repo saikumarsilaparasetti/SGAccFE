@@ -13,7 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import {MatTableModule} from '@angular/material/table';
 import {AuthGuard} from './guards/auth.guard';
 import { TestTableComponent } from './test-table/test-table.component';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +24,16 @@ import { TestTableComponent } from './test-table/test-table.component';
     FooterComponent,
     HomeComponent,
     RegisterComponent,
-    TestTableComponent
+    TestTableComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

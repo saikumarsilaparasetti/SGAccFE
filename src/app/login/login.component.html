@@ -1,12 +1,16 @@
 <!DOCTYPE html>
+
+  
 <html lang="en">
     <body >
        
         <!-- Masthead-->
 
         <!-- Portfolio Section-->
-        
-        <section class="page-section portfolio" id="portfolio">
+        <section *ngIf="!okay">
+            <app-spinner></app-spinner>
+        </section>
+        <section *ngIf="okay" class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Login</h2>
@@ -34,8 +38,17 @@
                 </div>
             </div>
             <section *ngIf="inValid" class="page-section portfolio" id="portfolio">
-                <h4 >Invalid user credentials!!!</h4>
+                <div class="container">
+                    <!-- Portfolio Section Heading-->
+                    
+                    <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Invalid user credentials!!!</h3>
+                </div>
             </section>
+
+
+            <!-- <section *ngIf="inValid" class="page-section portfolio" id="portfolio">
+                <h4 >Invalid user credentials!!!</h4>
+            </section> -->
         </section>
     </body>
 </html>

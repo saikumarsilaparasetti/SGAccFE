@@ -18,12 +18,12 @@ export interface PeriodicElement {
 })
 export class HomeComponent implements OnInit {
 
-
+okay:boolean=true;
 user={id:null};
 // result_user:any={
 //   name:""
 // };
-
+login_:boolean=true;
 _user={
   cust_id:"",
   name:"",
@@ -64,15 +64,18 @@ private listeners:[];
     alert('alert');
   }
 
+  logout(){
 
+  }
 
 
   @HostListener('verifyCust') verifyCust(){
+    this.okay=false;
     this._first=false;
     this.in_valid=false;
     //this.http.post("http://localhost:3000/verify/",this.user).subscribe(
       this.http.post("https://sgacc-backend.herokuapp.com/verify/",this.user).subscribe(
-      res=>{
+      res=>{this.okay=true;
         //console.log(res);
         if(res===null){
           console.log("No such user");
@@ -107,18 +110,23 @@ private listeners:[];
 
 
 cancel():void{
+  this.okay=false;
   this._issue=false;
+  this.okay=true;
 }
 
 issue(){
+  this.okay=false;
   this._issue=true;
+  this.okay=true;
 }
 
   onIssue(){
+    this.okay=false;
     this._user['cust_id']=this._issue_cust_id;
     //this.http.post("http://localhost:3000/issue/",this._user).subscribe(
       this.http.post("https://sgacc-backend.herokuapp.com/issue/",this._user).subscribe(
-      res=>{
+      res=>{this.okay=true;
         if(res==null){
           console.log("ERROR");
         }else{
@@ -137,10 +145,11 @@ issue(){
   }  
 
   statement(){
+    this.okay=false;
     this._stat=true;
     //this.http.post<Transection[]>("http://localhost:3000/getStatement/",{'cust_id':this._issue_cust_id}).subscribe(
       this.http.post<Transection[]>("https://sgacc-backend.herokuapp.com/getStatement/",{'cust_id':this._issue_cust_id}).subscribe(
-      res=>{
+      res=>{this.okay=true;
         if(res==null){
           console.log('No Transections');
         }else{

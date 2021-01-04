@@ -1,7 +1,16 @@
+
     <body >
-       
+        <section *ngIf="!okay">
+            <app-spinner></app-spinner>
+        </section>
+        
+    
+       <section *ngIf="okay">
         <!-- Portfolio Section-->
+            
+            
         <section class="page-section portfolio" id="portfolio">
+            
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Customer details</h2>
@@ -11,7 +20,7 @@
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                 <label>UserName/contact/serial number</label>
-                                <input matInput class="form-control" id="name" type="text" [(ngModel)]="user.id" [ngModelOptions]="{standalone: true}" placeholder="Name/Contact/ID" required="required"  name="username"/>
+                                <input matInput class="form-control" id="name" type="text" [(ngModel)]="user.id" [ngModelOptions]="{standalone: true}" placeholder="Name/Contact" required="required"  name="username"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -126,5 +135,8 @@
                 </div>
 
             </section>
-</body>
+        </section>
+
+
+    </body>
 

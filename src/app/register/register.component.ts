@@ -24,12 +24,14 @@ invalid:boolean=false;
   @HostListener('cancel') cancel():void{
     this.router.navigate(['/home']);
   }
-
+  okay:boolean=true;
   @HostListener('onSubmit') onSubmit(){
+      this.okay=false;
       console.log(this.user);
       //this.http.post('http://localhost:3000/registerCustomer',this.user).subscribe(
         this.http.post('https://sgacc-backend.herokuapp.com/registerCustomer',this.user).subscribe(
         res=>{
+          this.okay=true;
           console.log(res);
         },
         error=>{
