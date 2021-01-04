@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
 import {Customer} from '../shared/customer'
@@ -21,11 +21,11 @@ invalid:boolean=false;
   ngOnInit(): void {
   }
 
-  cancel():void{
+  @HostListener('cancel') cancel():void{
     this.router.navigate(['/home']);
   }
 
-  onSubmit(){
+  @HostListener('onSubmit') onSubmit(){
       console.log(this.user);
       //this.http.post('http://localhost:3000/registerCustomer',this.user).subscribe(
         this.http.post('http://sgacc-backend.herokuapp.com/registerCustomer',this.user).subscribe(

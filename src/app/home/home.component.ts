@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Customer} from '../shared/customer';
 import {Transection} from '../shared/transection';
@@ -48,17 +48,26 @@ _stat:boolean=false;
   //   {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter'},
   // ];
 elements:any;
-
+private listeners:[];
   headElements = ['Date','Item', 'Amount', 'Customer' ,'Remarks'];
   ngOnInit(): void {
 
 
 
   }
+
+// ngOnDestroy(){
+//   this.listeners.forEach(listener=>listener());
+// }
+
   onSubmit(){
     alert('alert');
   }
-  verifyCust(){
+
+
+
+
+  @HostListener('verifyCust') verifyCust(){
     this._first=false;
     this.in_valid=false;
     //this.http.post("http://localhost:3000/verify/",this.user).subscribe(
