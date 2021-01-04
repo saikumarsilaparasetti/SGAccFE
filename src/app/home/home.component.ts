@@ -71,7 +71,7 @@ private listeners:[];
     this._first=false;
     this.in_valid=false;
     //this.http.post("http://localhost:3000/verify/",this.user).subscribe(
-      this.http.post("http://sgacc-backend.herokuapp.com/verify/",this.user).subscribe(
+      this.http.post("https://sgacc-backend.herokuapp.com/verify/",this.user).subscribe(
       res=>{
         //console.log(res);
         if(res===null){
@@ -117,7 +117,7 @@ issue(){
   onIssue(){
     this._user['cust_id']=this._issue_cust_id;
     //this.http.post("http://localhost:3000/issue/",this._user).subscribe(
-      this.http.post("http://sgacc-backend.herokuapp.com/issue/",this._user).subscribe(
+      this.http.post("https://sgacc-backend.herokuapp.com/issue/",this._user).subscribe(
       res=>{
         if(res==null){
           console.log("ERROR");
@@ -139,7 +139,7 @@ issue(){
   statement(){
     this._stat=true;
     //this.http.post<Transection[]>("http://localhost:3000/getStatement/",{'cust_id':this._issue_cust_id}).subscribe(
-      this.http.post<Transection[]>("http://sgacc-backend.herokuapp.com/getStatement/",{'cust_id':this._issue_cust_id}).subscribe(
+      this.http.post<Transection[]>("https://sgacc-backend.herokuapp.com/getStatement/",{'cust_id':this._issue_cust_id}).subscribe(
       res=>{
         if(res==null){
           console.log('No Transections');

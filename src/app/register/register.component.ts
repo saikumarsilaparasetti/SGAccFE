@@ -28,7 +28,7 @@ invalid:boolean=false;
   @HostListener('onSubmit') onSubmit(){
       console.log(this.user);
       //this.http.post('http://localhost:3000/registerCustomer',this.user).subscribe(
-        this.http.post('http://sgacc-backend.herokuapp.com/registerCustomer',this.user).subscribe(
+        this.http.post('https://sgacc-backend.herokuapp.com/registerCustomer',this.user).subscribe(
         res=>{
           console.log(res);
         },

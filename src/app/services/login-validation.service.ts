@@ -11,7 +11,7 @@ export class LoginValidationService {
 
   validate():Observable<boolean>{
     //return this.http.get<boolean>('http://localhost:3000/login');
-    return this.http.get<boolean>('http://sgacc-backend.herokuapp.com/login');
+    return this.http.get<boolean>('https://sgacc-backend.herokuapp.com/login');
 
     
   }
