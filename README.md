@@ -1,3 +1,5 @@
+This App is currently running at https://sgacc-883f6.web.app/
+
 # SGAcc
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
