@@ -1,7 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
+import {LogoutService} from '../logout.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,14 +15,15 @@ export class HeaderComponent implements OnInit {
 
   public loggedIn:string='false';
   public static is_loggedIn:boolean=false;
-  login_:boolean=false;
-  constructor(private router:Router,private authService:AuthService) { }
+  public login_:boolean=false;
+  constructor(private router:Router,private authService:AuthService,private logoutService:LogoutService) { }
 
   logout():void{
     this.authService.logout();
     this.ngOnInit();
   }
  public activate():void{
+   console.log('Activated');
    this.visible=false;
     this.loggedIn=localStorage.getItem('isLoggedIn');
     if(this.loggedIn==='true'){
@@ -35,6 +36,7 @@ export class HeaderComponent implements OnInit {
 
   }
   ngOnInit(): void {
+   
     this.visible=false;
     this.loggedIn=localStorage.getItem('isLoggedIn');
     if(this.loggedIn==='true'){

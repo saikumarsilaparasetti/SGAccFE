@@ -1,3 +1,4 @@
+<app-header></app-header>
 <html>
     <body>
         <br/>
@@ -52,6 +53,13 @@
                 </div>
             </div>
         </section>
+        <section *ngIf="exists" class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">User already exists!!!</h3>
+            </div>
+        </section>
+
     </body>
 </html>
 

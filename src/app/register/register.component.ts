@@ -15,6 +15,7 @@ user:Customer={
   contact:null,
   balance:0.0
 };
+exists:boolean=false;
 invalid:boolean=false;
   constructor(private http:HttpClient,private router:Router) { }
 
@@ -32,13 +33,22 @@ invalid:boolean=false;
         this.http.post('https://sgacc-backend.herokuapp.com/registerCustomer',this.user).subscribe(
         res=>{
           this.okay=true;
-          console.log(res);
+          //console.log(res);
+          if(res[0]['added']==false){
+            this.exists=true;
+                        
+            console.log('Customer already exists');
+          }else{
+            this.exists=false;
+            this.router.navigate(['/home']);
+            //console.log('Customer added')
+          }
         },
         error=>{
           console.log('error',error);
         }
       );
-      this.router.navigate(['/home']);
+      
   }
 
 }

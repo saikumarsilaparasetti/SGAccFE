@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Customer} from '../shared/customer';
 import {Transection} from '../shared/transection';
 
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -48,13 +49,13 @@ _stat:boolean=false;
   //   {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter'},
   // ];
 elements:any;
+c_name:string;
 private listeners:[];
   headElements = ['Date','Item', 'Amount', 'Customer' ,'Remarks'];
   ngOnInit(): void {
-
-
-
+    //this.c_name=localStorage.get('token');
   }
+
 
 // ngOnDestroy(){
 //   this.listeners.forEach(listener=>listener());
@@ -123,6 +124,7 @@ issue(){
 
   onIssue(){
     this.okay=false;
+    this._stat=false;
     this._user['cust_id']=this._issue_cust_id;
     //this.http.post("http://localhost:3000/issue/",this._user).subscribe(
       this.http.post("https://sgacc-backend.herokuapp.com/issue/",this._user).subscribe(
@@ -139,6 +141,7 @@ issue(){
         }
       }
     )
+    
     //alert("Issue")
     console.log("On issue"+this._issue_cust_id);
     this._issue=false;
