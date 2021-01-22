@@ -15,6 +15,8 @@ import {AuthGuard} from './guards/auth.guard';
 import { TestTableComponent } from './test-table/test-table.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { LogOutComponent } from './log-out/log-out.component';
+import { LogoutService } from './logout.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     HomeComponent,
     RegisterComponent,
     TestTableComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    LogOutComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatTableModule,
     MatProgressSpinnerModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,LogoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
